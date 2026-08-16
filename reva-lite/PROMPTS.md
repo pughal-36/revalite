@@ -43,3 +43,9 @@ Explain:
 - How components should communicate
 
 Do not install packages or modify files yet.
+
+## Prompt 2 — Mock Device Data
+
+### Review
+
+The generated dataset was reviewed manually to ensure that the required fields, categories, and statuses were present and that unnecessary data was not introduced.
