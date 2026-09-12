@@ -22,8 +22,7 @@
    Header
    ════════════════════════════════════════════════════════════════ */
 .header {
-  background: rgba(9, 9, 11, 0.7); /* Zinc 950 with transparency */
-  border-bottom: 1px solid var(--border-glass);
+  background: var(--bg-surface); /* Pure white */
   padding: 1.25rem 2rem;
   display: flex;
   align-items: center;
@@ -33,7 +32,7 @@
   z-index: 50;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .header-brand {
@@ -113,7 +112,6 @@
   background: var(--bg-surface);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-glass);
   border-radius: var(--radius-md);
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -181,13 +179,13 @@
   background: var(--bg-surface);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-glass);
+  border: 1px solid transparent;
   border-radius: var(--radius-md);
   padding: 0.75rem 3rem 0.75rem 2.75rem;
   color: var(--text-primary);
   font-size: 0.95rem;
   transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-card);
 }
 
 .search-input::placeholder { color: var(--text-muted); }
@@ -243,18 +241,18 @@
   background: var(--bg-surface);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-glass);
+  border: 1px solid transparent;
   border-radius: var(--radius-sm);
   color: var(--text-primary);
   padding: 0.6rem 2rem 0.6rem 0.85rem;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2352525b' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.7rem center;
   cursor: pointer;
   transition: border-color var(--transition), background var(--transition);
   min-width: 150px;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-card);
 }
 
 .filter-select:focus {
@@ -288,14 +286,14 @@
   background: var(--bg-surface);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-glass);
+  border: none;
   border-radius: var(--radius-md);
   padding: 1.5rem;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  transition: transform var(--transition), box-shadow var(--transition);
   user-select: none;
   box-shadow: var(--shadow-card);
   transform-style: preserve-3d;
@@ -303,8 +301,7 @@
 
 .device-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
-  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
 }
 
 .device-card:focus-visible {
@@ -312,13 +309,32 @@
   outline-offset: 2px;
 }
 
-.device-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.device-image-container {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 0.5rem;
 }
 
-.device-icon { font-size: 1.75rem; line-height: 1; }
+.device-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+
+.device-card:hover .device-image {
+  transform: scale(1.05);
+}
+
+.overlay-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
 
 .device-name {
   font-size: 1rem;
@@ -363,11 +379,11 @@
   letter-spacing: 0.03em;
 }
 
-.badge-green  { background: var(--green-dim);  color: #86efac; }
-.badge-orange { background: var(--orange-dim); color: #fdba74; }
-.badge-red    { background: var(--red-dim);    color: #fca5a5; }
-.badge-blue   { background: var(--blue-dim);   color: #93c5fd; }
-.badge-gray   { background: #1e293b;           color: #94a3b8; }
+.badge-green  { background: var(--green-dim);  color: var(--green); }
+.badge-orange { background: var(--orange-dim); color: var(--orange); }
+.badge-red    { background: var(--red-dim);    color: var(--red); }
+.badge-blue   { background: var(--blue-dim);   color: var(--blue); }
+.badge-gray   { background: #f4f4f5;           color: var(--text-secondary); }
 
 /* ════════════════════════════════════════════════════════════════
    Empty state
@@ -411,9 +427,9 @@
   background: var(--bg-elevated);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: none;
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-modal), inset 0 1px 0 rgba(255,255,255,0.15);
+  box-shadow: var(--shadow-modal);
   width: 100%;
   max-width: 540px;
   max-height: 90vh;

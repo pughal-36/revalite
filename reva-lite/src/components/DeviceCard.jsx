@@ -9,18 +9,18 @@ const STATUS_STYLES = {
   'Under Inspection':  'badge-blue',
 };
 
-const CATEGORY_ICONS = {
-  Laptop:  '💻',
-  Phone:   '📱',
-  Tablet:  '📲',
-  Monitor: '🖥️',
-  Printer: '🖨️',
-  Desktop: '🖥️',
+const CATEGORY_IMAGES = {
+  Laptop:  'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=300&q=80',
+  Phone:   'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=300&q=80',
+  Tablet:  'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=300&q=80',
+  Monitor: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=300&q=80',
+  Printer: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=300&q=80',
+  Desktop: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=300&q=80',
 };
 
 export default function DeviceCard({ device, onSelect }) {
   const badgeClass = STATUS_STYLES[device.status] || 'badge-gray';
-  const icon       = CATEGORY_ICONS[device.category] || '🔌';
+  const imageUrl   = CATEGORY_IMAGES[device.category] || CATEGORY_IMAGES.Laptop;
   
   const cardRef = useRef();
 
@@ -69,9 +69,9 @@ export default function DeviceCard({ device, onSelect }) {
       aria-label={`View details for ${device.name}`}
       onKeyDown={e => e.key === 'Enter' && onSelect(device)}
     >
-      <div className="device-card-top" style={{ transform: 'translateZ(20px)' }}>
-        <span className="device-icon" aria-hidden="true">{icon}</span>
-        <span className={`badge ${badgeClass}`}>{device.status}</span>
+      <div className="device-image-container" style={{ transform: 'translateZ(20px)' }}>
+        <img src={imageUrl} alt={device.category} className="device-image" />
+        <span className={`badge ${badgeClass} overlay-badge`}>{device.status}</span>
       </div>
 
       <h2 className="device-name" style={{ transform: 'translateZ(30px)' }}>{device.name}</h2>

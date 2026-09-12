@@ -4,39 +4,40 @@
 
 @layer base {
   :root {
-    /* Refined SaaS Dark Mode (Tailwind Zinc inspired) */
-    --bg-base:      #09090b; /* Zinc 950 */
-    --bg-surface:   rgba(24, 24, 27, 0.6); /* Zinc 900 */
-    --bg-elevated:  rgba(39, 39, 42, 0.7); /* Zinc 800 */
-    --bg-overlay:   rgba(0, 0, 0, 0.6);
+    /* Monochrome Minimalist */
+    --bg-base:      #f5f5f7;
+    --bg-surface:   #ffffff;
+    --bg-elevated:  #ffffff;
+    --bg-overlay:   rgba(0, 0, 0, 0.3);
   
-    /* Indigo/Blue Accents instead of Slop Green */
-    --accent:       #6366f1; /* Indigo 500 */
-    --accent-dim:   #4338ca; /* Indigo 700 */
-    --accent-glow:  rgba(99, 102, 241, 0.15);
+    /* Accent is black/dark gray */
+    --accent:       #171717;
+    --accent-dim:   #404040;
+    --accent-glow:  rgba(0, 0, 0, 0.04);
   
     --blue:         #3b82f6;
-    --blue-dim:     #1d4ed8;
+    --blue-dim:     #dbeafe;
     --orange:       #f59e0b;
-    --orange-dim:   #b45309;
+    --orange-dim:   #fef3c7;
     --red:          #ef4444;
-    --red-dim:      #b91c1c;
+    --red-dim:      #fee2e2;
     --green:        #10b981;
-    --green-dim:    #047857;
+    --green-dim:    #d1fae5;
   
-    --text-primary:   #fafafa; /* Zinc 50 */
-    --text-secondary: #a1a1aa; /* Zinc 400 */
-    --text-muted:     #71717a; /* Zinc 500 */
+    --text-primary:   #171717;
+    --text-secondary: #52525b;
+    --text-muted:     #a1a1aa;
   
-    --border:       rgba(255, 255, 255, 0.08);
-    --border-focus: rgba(99, 102, 241, 0.50);
-    --border-glass: rgba(255, 255, 255, 0.05); /* Very subtle hairline */
-    --radius-sm:    6px;
-    --radius-md:    12px;
-    --radius-lg:    18px;
+    --border:       rgba(0, 0, 0, 0.06);
+    --border-focus: rgba(0, 0, 0, 0.2);
+    --border-glass: rgba(0, 0, 0, 0.03);
+    
+    --radius-sm:    8px;
+    --radius-md:    16px;
+    --radius-lg:    24px;
   
-    --shadow-card:  0 10px 30px rgba(0, 0, 0, 0.2);
-    --shadow-modal: 0 25px 50px rgba(0, 0, 0, 0.4);
+    --shadow-card:  0 4px 24px rgba(0, 0, 0, 0.04);
+    --shadow-modal: 0 20px 40px rgba(0, 0, 0, 0.1);
   
     --transition:   300ms cubic-bezier(0.23, 1, 0.32, 1);
   }
@@ -62,16 +63,16 @@
     background: var(--bg-surface);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--border-glass);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), var(--shadow-card);
+    border: none;
+    box-shadow: var(--shadow-card);
   }
   
   .glass-elevated {
     background: var(--bg-elevated);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), var(--shadow-modal);
+    border: none;
+    box-shadow: var(--shadow-modal);
   }
   
   .preserve-3d {
