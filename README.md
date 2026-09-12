@@ -38,6 +38,15 @@ While the AI generated the bulk of the code, significant human intervention and 
 
 ---
 
+## ⚙️ Prerequisites
+
+To run this project locally, ensure you have the following installed on your PC:
+- **Node.js** (v18.0.0 or higher recommended)
+- **npm** (comes with Node.js)
+- **Git** (for version control)
+
+---
+
 ## 💻 Running the Application
 
 To run the dashboard locally:
