@@ -10,6 +10,16 @@
 
 ---
 
+## 📸 Before & After Transformation
+
+As part of the AI collaboration process, the aesthetic evolved significantly from the AI's initial rigid layout to a premium minimalist light theme with real device imagery.
+
+| Before (AI's Initial Output) | After (Manual Refinement & Polish) |
+| :---: | :---: |
+| ![Before Design](reva-lite/public/before.png) | ![After Design](reva-lite/public/after.png) |
+
+---
+
 ## 🤖 AI Assistance & Workflow
 
 This project was built using an AI assistant (Google Antigravity / Gemini) paired with human oversight. 
